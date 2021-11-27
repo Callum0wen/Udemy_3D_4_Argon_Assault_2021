@@ -1,22 +1,30 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+	[Header("Input Settings")]
     [SerializeField] InputAction movement;
     [SerializeField] InputAction fire;
 
-    [SerializeField] float controlSpeed = 30f;
-    [SerializeField] float xRange = 10f;
-    [SerializeField] float yRange = 7.5f;
+	[Header("General Setup Settings")]
+    [Tooltip("How fast ship moves up, down, left, right, based on player input")] [SerializeField] float controlSpeed = 40f;
+	[Tooltip("How far player can move horizontally")] [SerializeField] float xRange = 25f;
+	[Tooltip("How far player can move vertically")] [SerializeField] float yRange = 15f;
 
+	[Header("Laser gun array")]
+	[Tooltip("Add player lasers here")][SerializeField] GameObject[] lasers; 
+
+	[Header("Screen position based tuning")]
 	[SerializeField] float positionPitchFactor = -2f;
-	[SerializeField] float controlPitchFactor = -10f;
-
 	[SerializeField] float positionYawFactor = 2f;
-	[SerializeField] float controlRollFactor = -20f;
+
+	[Header("Player input based tuning")]
+	[SerializeField] float controlPitchFactor = -15f;
+	[SerializeField] float controlRollFactor = -30f;
 
 	float xThrow, yThrow;
 
@@ -29,11 +37,13 @@ public class PlayerController : MonoBehaviour
 	void OnEnable()
 	{
         movement.Enable();
+		fire.Enable();
 	}
 
 	void OnDisable()
 	{
         movement.Disable();
+		fire.Enable();
 	}
 
 	// Update is called once per frame
@@ -41,6 +51,7 @@ public class PlayerController : MonoBehaviour
 	{
 		ProcessTranslation();
 		ProcessRotation();
+		ProcessFiring();
 	}
 
 	void ProcessRotation()
@@ -70,4 +81,21 @@ public class PlayerController : MonoBehaviour
 
 		transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
 	}
+
+	void ProcessFiring()
+	{
+		var isActive = fire.ReadValue<float>() > 0.5;
+		SetLasersActive(isActive);
+	}
+
+	void SetLasersActive(bool isActive)
+	{
+		foreach(GameObject laser in lasers)
+		{
+			var emissionModule = laser.GetComponent<ParticleSystem>().emission;
+			emissionModule.enabled = isActive;
+		}
+	}
+
+
 }
