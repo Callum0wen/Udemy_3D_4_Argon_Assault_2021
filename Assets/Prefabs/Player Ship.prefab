@@ -251,6 +251,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5521229481690696021}
+  - {fileID: 100650524086794626}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -315,6 +316,141 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c10adf6f1d69734caac6fb720f6d3ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement:
+    m_Name: Movement
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: deb6bdd5-18d2-45bb-9fc8-890beddd9061
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: 6245889a-9a62-4a9a-8da9-bf6533e6dbc5
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement
+      m_Flags: 4
+    - m_Name: up
+      m_Id: a9c67fd1-0874-492a-92ba-5c6af244324f
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 52c4624b-7999-4fbe-a038-1306be0ce12c
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 9bf14849-af06-424f-b7a9-5a17f20aa2ab
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 2693df33-03c2-444f-bb15-7de2cf23dada
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement
+      m_Flags: 8
+    - m_Name: 
+      m_Id: 52232d6e-baed-4d83-9330-47fd4f0b5978
+      m_Path: <Gamepad>/leftStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement
+      m_Flags: 0
+    - m_Name: 2D Vector Arrow Keys
+      m_Id: cc0094c2-b943-49d8-acce-fe6f03adf623
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 6d1bac64-8531-4026-bb52-ed1ff559e2e2
+      m_Path: <Keyboard>/upArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 4f792eb5-2f46-46cb-817b-074f1900ef14
+      m_Path: <Keyboard>/downArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 6e90c418-e8f9-4500-b122-7cc4f5d4a2eb
+      m_Path: <Keyboard>/leftArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement
+      m_Flags: 8
+    - m_Name: right
+      m_Id: fff905be-41e7-4f62-9ab4-c2e1f1f7d78f
+      m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement
+      m_Flags: 8
+  fire:
+    m_Name: Fire
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 391531d4-cf2e-4126-93a6-fd5a7d043246
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 83cf5114-46d2-4bfa-b4a3-cfa366f97671
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Fire
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 90c2e4f3-7c9f-401c-9eb0-4a1b3a03d76c
+      m_Path: <Gamepad>/rightTrigger
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Fire
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 78736e1d-6339-42f6-8a44-71d04879b513
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Fire
+      m_Flags: 0
+  controlSpeed: 40
+  xRange: 25
+  yRange: 15
+  positionPitchFactor: -2
+  controlPitchFactor: -15
+  positionYawFactor: 2
+  controlRollFactor: -30
 --- !u!1 &5518753304282477869
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,3 +531,65 @@ Transform:
   m_Father: {fileID: 5521219595620810291}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2161464856655210980
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5521219595620810291}
+    m_Modifications:
+    - target: {fileID: 2061106888577831013, guid: 3c91487a01211d542b5c7fab71c168f8, type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061106888577831014, guid: 3c91487a01211d542b5c7fab71c168f8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061106888577831014, guid: 3c91487a01211d542b5c7fab71c168f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 149.29993
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061106888577831014, guid: 3c91487a01211d542b5c7fab71c168f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -43.45606
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061106888577831014, guid: 3c91487a01211d542b5c7fab71c168f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 202.52579
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061106888577831014, guid: 3c91487a01211d542b5c7fab71c168f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061106888577831014, guid: 3c91487a01211d542b5c7fab71c168f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061106888577831014, guid: 3c91487a01211d542b5c7fab71c168f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061106888577831014, guid: 3c91487a01211d542b5c7fab71c168f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061106888577831014, guid: 3c91487a01211d542b5c7fab71c168f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061106888577831014, guid: 3c91487a01211d542b5c7fab71c168f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061106888577831014, guid: 3c91487a01211d542b5c7fab71c168f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3c91487a01211d542b5c7fab71c168f8, type: 3}
+--- !u!4 &100650524086794626 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2061106888577831014, guid: 3c91487a01211d542b5c7fab71c168f8, type: 3}
+  m_PrefabInstance: {fileID: 2161464856655210980}
+  m_PrefabAsset: {fileID: 0}
